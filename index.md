@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: '森弟儿の笔记空间'
+  text: 'Continuous logging ...'
+  tagline: The way things progress slowly, so does life.
   actions:
     - theme: brand
       text: Markdown Examples
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
