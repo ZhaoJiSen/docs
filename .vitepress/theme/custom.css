@@ -1,0 +1,15 @@
+/* 导入 Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+/* 应用于根目录的字体样式 */
+:root {
+  --font-family-base: 'Handlee', cursive;
+}
+
+body {
+  font-family: var(--font-family-base);
+}
+
+.logo {
+  border-radius: 50%;
+}

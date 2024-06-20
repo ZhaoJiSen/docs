@@ -13,10 +13,11 @@ import { securitySideBar } from './browser/securitySideBar';
 import { browserBrowserSideBar } from './browser/browserSideBar';
 
 export default defineConfig({
-  title: '森弟儿の笔记空间',
+  title: '秘密の花園',
   description: 'A VitePress Site',
   outDir: 'docs',
   themeConfig: {
+    logo: '/img/logo.jpg',
     outline: 'deep',
 
     nav: [{ text: '首页', link: '/' }, basicsNav, browserNav, buildToolNav, frameworkNav],
