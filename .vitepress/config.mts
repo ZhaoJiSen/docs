@@ -5,7 +5,12 @@ import { browserNav } from './browser';
 import { buildToolNav } from './buildTool';
 import { frameworkNav } from './framework';
 
+import { v8SideBar } from './browser/v8SideBar';
+import { loopSideBar } from './browser/loopSideBar';
 import { basicsCSSSideBar } from './basics/cssSideBar';
+import { webpackSideBar } from './buildTool/webpackSideBar';
+import { securitySideBar } from './browser/securitySideBar';
+import { browserBrowserSideBar } from './browser/browserSideBar';
 
 export default defineConfig({
   title: '森弟儿の笔记空间',
@@ -30,9 +35,14 @@ export default defineConfig({
 
     sidebar: {
       '/basics/CSS': basicsCSSSideBar,
+      '/browser/browser': browserBrowserSideBar,
+      '/browser/v8/': v8SideBar,
+      '/browser/loop/': loopSideBar,
+      '/browser/security/': securitySideBar,
+      'buildTools/Webpack': webpackSideBar,
     },
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/ZhaoJiSen/docs' }],
 
     footer: {
       copyright: 'Copyringht @ 2024 森弟儿',

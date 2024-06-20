@@ -2,8 +2,9 @@ import fs from 'fs';
 import path from 'path';
 
 // 递归获取指定目录下的所有指定后缀名文件列表
-export const walk = function (baseDir, subDir = '') {
+export const walk = function (baseDir, subDir = '', collapsible, collapsed) {
   let results = [];
+
   const list = fs.readdirSync(path.join(baseDir, subDir));
   list.forEach((file) => {
     const filePath = path.join(baseDir, subDir, file);
@@ -32,8 +33,8 @@ export const walk = function (baseDir, subDir = '') {
 
   return {
     text: subDir || '默认值',
-    collapsible: true,
-    collapsed: false,
+    collapsible: collapsible,
+    collapsed: collapsed,
     items: items,
   };
 };
