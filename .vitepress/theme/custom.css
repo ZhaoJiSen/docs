@@ -7,9 +7,14 @@
 }
 
 body {
-  font-family: var(--font-family-base);
+  /* font-weight: 500; */
+  /* font-family: var(--font-family-base); */
 }
 
 .logo {
   border-radius: 50%;
+}
+
+.VPDoc.has-aside .content-container {
+  /* min-width: 1000px !important; */
 }

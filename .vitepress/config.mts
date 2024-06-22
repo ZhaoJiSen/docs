@@ -19,7 +19,6 @@ export default defineConfig({
   themeConfig: {
     logo: '/img/logo.jpg',
     outline: 'deep',
-
     nav: [{ text: '首页', link: '/' }, basicsNav, browserNav, buildToolNav, frameworkNav],
 
     lastUpdated: {
