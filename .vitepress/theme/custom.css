@@ -15,6 +15,17 @@ body {
   border-radius: 50%;
 }
 
-.VPDoc.has-aside .content-container {
-  /* min-width: 1000px !important; */
+.vp-doc table {
+  transform: translateX(50%);
+  margin-left: -50%;
+}
+
+.vp-doc th {
+  text-align: center !important;
+  vertical-align: center !important;
+}
+
+.vp-doc td {
+  text-align: center !important;
+  vertical-align: center !important;
 }

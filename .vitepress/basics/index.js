@@ -17,6 +17,6 @@ export const basicsNav = {
     {
       text: 'TypeScript',
       link: '/basics/TypeScript',
-    }
+    },
   ],
 };
