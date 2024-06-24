@@ -16,6 +16,7 @@ export default defineConfig({
   title: '秘密の花園',
   description: 'A VitePress Site',
   outDir: 'docs',
+  base: '/docs/',
   themeConfig: {
     logo: '/img/logo.jpg',
     outline: 'deep',
