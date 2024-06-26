@@ -1,205 +1,101 @@
 # Webpack
 
-Webpack 是一个用于构建 JavaScript 应用程序的静态模块打包工具，能够以一种相对一致的开放处理方式去解析、应用所有资源文件，最终将其打包为浏览器兼容的 Web 资源文件
-<svg viewBox="0 0 1088 615" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g stroke-width="1" fill="none" fill-rule="evenodd">
-        <text font-family="'Source Sans Pro', sans-serif" font-size="18" font-weight="600" fill="#86A5BA">
-            <tspan x="933.778" y="459">静态资源</tspan>
-        </text>
-        <g transform="translate(1002, 326)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-1"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="84" height="84" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="18.891" y="46.7096774">.png</tspan>
-            </text>
-        </g>
-        <g transform="translate(1002, 214)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-2"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="84" height="84" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="22.532" y="46.7096774">.css</tspan>
-            </text>
-        </g>
-        <g transform="translate(894, 326)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-3"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="84" height="84" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="21.817" y="46.7096774">.jpg</tspan>
-            </text>
-        </g>
-        <g transform="translate(894, 214)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-4"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="84" height="84" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="29" y="46.7096774">.js</tspan>
-            </text>
-        </g>
-        <g transform="translate(342, 225)" stroke="#7E8C94" stroke-width="4">
-            <path d="M499.558824,86.52 C499.558824,86.52 484.852941,81.02 439.908088,109.436667 C394.963235,137.853333 380.992647,164.436667 380.992647,164.436667" stroke-dasharray="7"></path>
-            <path d="M499.558824,86.0616667 C499.558824,86.0616667 484.852941,91.5616667 439.908088,63.145 C394.963235,34.7283333 380.992647,8.145 380.992647,8.145" stroke-dasharray="7"></path>
-            <path d="M0.477941176,170.395 C0.477941176,170.395 169.382939,98.895 447.847936,98.895" stroke-dasharray="6"></path>
-            <path d="M0.477941176,72.395 C0.477941176,72.395 169.382939,0.895 447.847936,0.895" stroke-dasharray="6" transform="translate(224.162939, 36.645000) scale(1, -1) translate(-224.162939, -36.645000) "></path>
-        </g>
-        <text font-family="'Source Sans Pro', sans-serif" font-size="18" font-weight="600" fill="#86A5BA">
-            <tspan x="24.934" y="562">模块依赖</tspan>
-        </text>
-        <g transform="translate(228, 335)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-5"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="66" height="66" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="12.817" y="38">.jpg</tspan>
-            </text>
-        </g>
-        <g transform="translate(228, 223)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-6"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="66" height="66" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="9.891" y="38">.png</tspan>
-            </text>
-        </g>
-        <g transform="translate(302, 414.500000) scale(1, -1) translate(-302, -414.500000) translate(182, 404)">
-            <rect fill="#BBDBEC" x="0" y="0" width="2" height="6"></rect>
-            <rect fill="#BBDBEC" x="76" y="6" width="2" height="12"></rect>
-            <rect fill="#BBDBEC" transform="translate(75.304690, 4.704683) rotate(-45) translate(-75.304690, -4.704683) " x="74.3046896" y="1.87968342" width="2" height="5.6500001"></rect>
-            <rect fill="#BBDBEC" x="2" y="2" width="72" height="2"></rect>
-            <polyline stroke="#BBDBEC" stroke-width="2" points="80 12 77 20.8000002 74 12"></polyline>
-        </g>
-        <g transform="translate(116, 391)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-7"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="66" height="66" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="8.076" y="38">.sass</tspan>
-            </text>
-        </g>
-        <g transform="translate(116, 279)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-8"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="66" height="66" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="8.076" y="38">.sass</tspan>
-            </text>
-        </g>
-        <g transform="translate(182, 201)">
-            <rect fill="#BBDBEC" x="0" y="0" width="2" height="6"></rect>
-            <rect fill="#BBDBEC" x="76" y="113" width="2" height="12"></rect>
-            <rect fill="#BBDBEC" transform="translate(75.304690, 111.704683) rotate(-45) translate(-75.304690, -111.704683) " x="74.3046896" y="108.879683" width="2" height="5.6500001"></rect>
-            <rect fill="#BBDBEC" x="26" y="109" width="48" height="2"></rect>
-            <rect fill="#BBDBEC" transform="translate(24.704683, 108.304690) rotate(-45) translate(-24.704683, -108.304690) " x="23.7046835" y="105.47969" width="2" height="5.6500001"></rect>
-            <rect fill="#BBDBEC" x="22" y="6" width="2" height="101"></rect>
-            <rect fill="#BBDBEC" transform="translate(21.304690, 4.704683) rotate(-45) translate(-21.304690, -4.704683) " x="20.3046896" y="1.87968342" width="2" height="5.6500001"></rect>
-            <rect fill="#BBDBEC" x="2" y="2" width="18" height="2"></rect>
-            <polyline stroke="#BBDBEC" stroke-width="2" points="80 118 77 126.8 74 118"></polyline>
-        </g>
-        <g transform="translate(182, 189)">
-            <rect fill="#BBDBEC" x="0" y="0" width="2" height="6"></rect>
-            <rect fill="#BBDBEC" x="76" y="6" width="2" height="19"></rect>
-            <rect fill="#BBDBEC" transform="translate(75.304690, 4.704683) rotate(-45) translate(-75.304690, -4.704683) " x="74.3046896" y="1.87968342" width="2" height="5.6500001"></rect>
-            <rect fill="#BBDBEC" x="2" y="2" width="72" height="2"></rect>
-            <polyline stroke="#BBDBEC" stroke-width="2" points="80 18 77 26.8000002 74 18"></polyline>
-        </g>
-        <g transform="translate(116, 167)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-9"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="66" height="66" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="20" y="38">.js</tspan>
-            </text>
-        </g>
-        <g transform="translate(110, 470.500000) scale(1, -1) translate(-190, -470.500000) translate(150, 460)">
-            <rect fill="#BBDBEC" x="0" y="0" width="2" height="6"></rect>
-            <rect fill="#BBDBEC" x="76" y="6" width="2" height="12"></rect>
-            <rect fill="#BBDBEC" transform="translate(75.304690, 4.704683) rotate(-45) translate(-75.304690, -4.704683) " x="74.3046896" y="1.87968342" width="2" height="5.6500001"></rect>
-            <rect fill="#BBDBEC" x="2" y="2" width="72" height="2"></rect>
-            <polyline stroke="#BBDBEC" stroke-width="2" points="80 12 77 20.8000002 74 12"></polyline>
-        </g>
-        <g transform="translate(4, 447)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-10"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="66" height="66" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="8.076" y="38">.sass</tspan>
-            </text>
-        </g>
-        <g transform="translate(70, 363)">
-            <rect fill="#BBDBEC" x="0" y="0" width="2" height="6"></rect>
-            <rect fill="#BBDBEC" x="76" y="6" width="2" height="12"></rect>
-            <rect fill="#BBDBEC" transform="translate(75.304690, 4.704683) rotate(-45) translate(-75.304690, -4.704683) " x="74.3046896" y="1.87968342" width="2" height="5.6500001"></rect>
-            <rect fill="#BBDBEC" x="2" y="2" width="72" height="2"></rect>
-            <polyline stroke="#BBDBEC" stroke-width="2" points="80 12 77 20.8000002 74 12"></polyline>
-        </g>
-        <g transform="translate(4, 335)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-11"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="66" height="66" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="15.38" y="38">.cjs</tspan>
-            </text>
-        </g>
-        <g transform="translate(38, 307)">
-            <rect fill="#BBDBEC" x="0" y="22" width="6" height="2"></rect>
-            <rect fill="#BBDBEC" x="2" y="6" width="2" height="16"></rect>
-            <rect fill="#BBDBEC" transform="translate(4.704683, 4.704683) rotate(45) translate(-4.704683, -4.704683) " x="3.70468347" y="1.87968342" width="2" height="5.6500001"></rect>
-            <rect fill="#BBDBEC" x="6" y="2" width="62" height="2"></rect>
-            <polyline stroke="#BBDBEC" stroke-width="2" transform="translate(66.400000, 3) rotate(270) translate(-66.400000, -3) " points="69.4000001 -1.4000001 66.4000001 7.4000001 63.4000001 -1.4000001"></polyline>
-        </g>
-        <g transform="translate(26, 289)">
-            <polyline stroke="#BBDBEC" stroke-width="2" points="6 30 3 38.8000002 0 30"></polyline>
-            <rect fill="#BBDBEC" x="2" y="0" width="2" height="39"></rect>
-            <rect fill="#BBDBEC" x="0" y="0" width="6" height="2"></rect>
-        </g>
-        <g transform="translate(110, 246.500000) scale(1, -1) translate(-190, -246.500000) translate(150, 236)">
-            <rect fill="#BBDBEC" x="0" y="0" width="2" height="6"></rect>
-            <rect fill="#BBDBEC" x="76" y="6" width="2" height="12"></rect>
-            <rect fill="#BBDBEC" transform="translate(75.304690, 4.704683) rotate(-45) translate(-75.304690, -4.704683) " x="74.3046896" y="1.87968342" width="2" height="5.6500001"></rect>
-            <rect fill="#BBDBEC" x="2" y="2" width="72" height="2"></rect>
-            <polyline stroke="#BBDBEC" stroke-width="2" points="80 12 77 20.8000002 74 12"></polyline>
-        </g>
-        <g transform="translate(4, 223)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-12"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="66" height="66" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="10.947" y="38">.hbs</tspan>
-            </text>
-        </g>
-        <g transform="translate(32, 177)">
-            <polyline stroke="#BBDBEC" stroke-width="2" points="6 30 3 38.8000002 0 30"></polyline>
-            <rect fill="#BBDBEC" x="2" y="0" width="2" height="39"></rect>
-            <rect fill="#BBDBEC" x="0" y="0" width="6" height="2"></rect>
-        </g>
-        <g transform="translate(4, 111)">
-            <g>
-                <use fill-opacity="0.1" fill="#526B78" fill-rule="evenodd" xlink:href="#path-13"></use>
-                <rect stroke="#526B78" stroke-width="4" x="-2" y="-2" width="66" height="66" rx="3"></rect>
-            </g>
-            <text font-family="'Source Sans Pro', sans-serif" font-size="22" font-weight="500" fill="#FFFFFF">
-                <tspan x="20" y="38">.js</tspan>
-            </text>
-        </g>
-    </g>
-  </svg>
+Webpack 是一个用于构建 JavaScript 应用程序的静态模块打包工具，其能够以一种**相对一致**的开放处理方式去解析、应用所有资源文件，最终将其打包为浏览器兼容的 Web 资源文件。
+
+:::info
+在 Webpack 中任何的资源，包括图片、CSS、视频、代码等都被统一看做为`Module`对象，以相同的加载、解析、优化、合并流程从而实现打包
+
+:::
+
+## 使用 Babel
+
+Bable 是一个 JavaScript 转换编译器，它能将高版本 —— 如 ES6 代码等价转译为向后兼容，能直接在旧版 JavaScript 引擎运行的低版本代码，例如：
+
+```js
+// 使用 Babel 转译前
+arr.map((item) => item + 1);
+
+// 转译后
+arr.map(function (item) {
+	return item + 1;
+});
+```
+
+:::details 内容补充：为什么需要 Babel
+由于 ES6 版本补充了大量提升 JavaScript 开发效率的新特性，使得 JavaScript 可以真正被用于编写复杂的大型应用程序。但也同时也或多或少的存在一些兼容性问题，为此现代 Web 开发流程中通常会引入 Babel 等转译工具。
+
+:::
+
+### 安装依赖
+
+在 Webpack 场景下，只需使用`babel-loader`即可接入 Babel 的转义功能
+
+```shell
+pnpm add @babel/core @babel/preset-env babel-loader -D
+```
+
+:::info 其中：
+
+- `@babel/core`：Babel 的核心库，负责实际的代码转换工作
+- `babel-loader`：是一个 Webpack 加载器，用于在 Webpack 构建过程中调用 Babel 来转换代码
+- `@babel/preset-env`：是一种 Babel 预设规则集，能够能按需将一系列复杂、数量庞大的配置、插件、Polyfill 等打包成一个单一的资源包，从而简化 Babel 的应用、学习成本
+
+:::
+
+### 添加模块处理规则
+
+在 Webpack 配置文件中，通过`module`属性来声明模块处理规则，`module.rules`子属性用于对文件类型与 Loader 的匹配
+
+```js
+module.exports = {
+    ...
+    modules: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: ['babel-loader']
+            }
+        ]
+    }
+}
+```
+
+:::info 小差一嘴：
+通过上面的内容，就不难理解为什么在 Webpack 中使用这些配置项名称。就是因为 Webpack 将所有资源都视为模块（Module），因此使用 module 配置项来匹配不同类型的资源（例如上面的 test 配置项），以及通过 use 和 options 配置项，就可以指定如何解析和转换这些资源。
+:::
+
+### 执行编译
+
+在执行编译前，还需配置 Babel 的预设规则集，其作用就是告诉 Babel 如何对如何代码进行转换
+
+```
+module.exports = {
+    modules: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
+然后就可以执行 Webpack CLI 所提供的命令，进行编译转换
+
+```shell
+npx webpack
+```
+
+## 使用 TypeScript
 
 
-Webpack 中任何资源（图片、CSS、视频、代码等）都统一看作为 Module 对象，以相同的加载、解析、优化、合并流程从而实现打包
 
-
-在 Webpack 处理时都会以相同的方式，并借助 Loader、Plugin 两种开放接口将资源差异处理逻辑转交由社区实现，实现**统一资源构建模型**
+## 使用 ESLint

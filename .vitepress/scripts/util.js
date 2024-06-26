@@ -6,6 +6,7 @@ export const walk = function (baseDir, subDir = '', collapsible, collapsed) {
   let results = [];
 
   const list = fs.readdirSync(path.join(baseDir, subDir));
+
   list.forEach((file) => {
     const filePath = path.join(baseDir, subDir, file);
     if (fs.statSync(filePath).isDirectory()) {
