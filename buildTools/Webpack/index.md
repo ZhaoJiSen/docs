@@ -1,19 +1,17 @@
 # Webpack
 
-Webpack 是一个用于构建 JavaScript 应用程序的静态模块打包工具，其能够以一种**相对一致**的开放处理方式去解析、应用所有资源文件，最终将其打包为浏览器兼容的 Web 资源文件。
+Webpack 是一个用于构建 JavaScript 应用程序的静态 **模块打包工具（module bundler）**，其能够以一种 **相对一致** 的开放处理方式去解析、应用所有资源文件，最终将其打包为浏览器兼容的 Web 资源文件。
 
-安装 Webpack
+对于模块打包，通俗的理解就是去找出模块之间的依赖关系，并按照一定的规则把这些模块组织、合并为一个 JavaScript
+
+> [!IMPORTANT] 重点：
+> Webpack 中任何的资源，包括图片、CSS、视频、代码等都被统一看做为`Module`对象，以相同的加载、解析、优化、合并流程从而实现打包
+
+安装 Webpack 需要两个核心 npm 包，分别是`webpack`与`webpack-cli`。安装后，在项目根目录下，创建`webpack.config.js`文件，即可开始配置项目工程
 
 ```shell
-# 在 Webpack5 中需要额外安装 webpack-cli
 pnpm add webpack webpack-cli -D
 ```
-
-安装后，在项目根目录下，创建`webpack.config.js`文件，即可开始配置项目工程
-
-:::tip 注意
-在 Webpack 中任何的资源，包括图片、CSS、视频、代码等都被统一看做为`Module`对象，以相同的加载、解析、优化、合并流程从而实现打包
-:::
 
 ## 使用 Babel
 
@@ -78,23 +76,23 @@ module.exports = {
 
 ```js
 module.exports = {
-    /* ... */
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env']
-                        }
-                    }
-                ]
-            }xe
-        ]
-    }
-}
+	/* ... */
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				use: [
+					{
+						loader: 'babel-loader',
+						options: {
+							presets: ['@babel/preset-env'],
+						},
+					},
+				],
+			},
+		],
+	},
+};
 ```
 
 然后就可以执行 Webpack CLI 所提供的命令，进行编译转换
