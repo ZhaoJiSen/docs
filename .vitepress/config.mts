@@ -6,6 +6,7 @@ import { buildToolNav } from './buildTool';
 import { frameworkNav } from './framework';
 
 import { v8SideBar } from './browser/v8SideBar';
+import { vueSideBar } from './framework/vueSideBar';
 import { loopSideBar } from './browser/loopSideBar';
 import { basicsJSSideBar } from './basics/jsSideBar';
 import { basicsCSSSideBar } from './basics/cssSideBar';
@@ -40,6 +41,7 @@ export default defineConfig({
 			'/basics/JavaScript': basicsJSSideBar,
 			'/browser/browser': browserBrowserSideBar,
 			'/browser/v8/': v8SideBar,
+			'/framework/Vue': vueSideBar,
 			'/browser/loop/': loopSideBar,
 			'/browser/security/': securitySideBar,
 			'buildTools/Webpack': webpackSideBar,
