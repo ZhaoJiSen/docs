@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress';
 
+import { backEnd } from './backend';
 import { basicsNav } from './basics';
 import { browserNav } from './browser';
 import { buildToolNav } from './buildTool';
@@ -22,7 +23,7 @@ export default defineConfig({
 	themeConfig: {
 		logo: '/img/logo.jpg',
 		outline: 'deep',
-		nav: [{ text: '首页', link: '/' }, basicsNav, browserNav, buildToolNav, frameworkNav],
+		nav: [{ text: '首页', link: '/' }, basicsNav, browserNav, buildToolNav, frameworkNav, backEnd],
 
 		lastUpdated: {
 			text: '最后更改时间',
