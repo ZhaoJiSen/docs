@@ -2,19 +2,195 @@
 
 ## 1. 变量
 
-在 Go 语言中，使用关键字 `var`声明变量，变量名后紧接变量类型（类型后置）。在声明变量时，变量类型后置，且行尾无需分号，例如：
+变量是相当于是对一块数据存储空间的命名，程序可以通过定义一个变量来申请一块数据空间，之后可以通过过引用变量名来
+使用这块存储空间。
+
+Go 语言中，对于纯粹的变量声明使用关键字 `var`
 
 ``` go
-var message string = 'Hello Wrold'
+var v1 int
+var v2 string
+var v3 [10]int          // 数组
+var v4 []int            // 数组切片
+var v5 struct { 
+ f int
+} 
+var v6 *int             // 指针
+var v7 map[string]int   // map，key 为 string 类型，value 为 int 类型
+var v8 func(a int) int
 ```
 
-:::info
-Go 是一种静态类型语言，因此变量（variable）是有明确类型的，编译器也会检查变量类型的正确性
-:::
+`var` 关键字的另一种用法是可以将若干个需要声明的变量放置在一起，一次性声明
 
-变量的命名规则遵循驼峰命名法，即首个单词小写，每个新单词的首字母大写，例如： startDate
+```go
+var (
+    v1 int
+    v2 string
+)
+```
 
-### 1.1 基本类型
+### 1.1 变量初始化
+
+对于声明变量时需要进行初始化的场景，`var` 关键字可以保留，但不再是必要的元素，例如：
+
+```go
+var v1 int = 100
+var v2 = 10
+v3: 10
+```
+
+以上三种用法的效果是完全一样的，并且 Go 语言也引入了个 C 和 C++ 中没有的符号组合 `:=`，用于明确表达同时进行变量声明和初始化的工作。
+
+>[!info] 补充：
+>
+> 指定类型已不再是必须的，Go 编译器可以从初始化表达式的右值推导出该变量应该声明为哪种类型，因此这让 Go 语言看起来有点像动态类型语言，尽管 Go 语言实际上是不折不扣的强类型语言（静态类型语言）。
+
+>[!important] 注意：
+>
+>出现在 `:=` 左侧的变量不应该是已被声明过的，否则将会导致 `no new variables on left side of :=`  的编译错误
+>
+>```go
+>var i int
+>i := 2
+>```
+>
+>但是存在例外情况：
+>
+>只要左边的变量列表中至少有一个是新声明的变量，编译器就不会报错，即使他已是被声明过的
+>
+>```go
+>package main
+>
+>import "fmt"
+>
+> func main() {
+>   a, b := 1, 2
+>   fmt.Println(a, b)   // 1 2
+>   a, c := 3, 4    
+>   fmt.Println(a, c)   // 3 4
+> }
+>```
+
+### 1.2 变量赋值
+
+在 Go 语法中，变量初始化和变量赋值是两个不同的概念。如下声明一个变量之后的赋值过程：
+
+```go
+var v10 int
+v10 = 100
+```
+
+除了上述最基本的赋值形式， Go 语言中还提供了 C/C++ 程序员期盼多年的`多重赋值功能`，比如下面这个交换 i 和 j 变量的语句：
+
+```go
+i := 100
+j := 200
+
+i,j = j,i
+```
+
+### 1.3 匿名变量
+
+在使用传统的强类型语言编程时，经常会出现：在调用函数时为了获取一个值，却因为该函数返回多个值而不得不定义一堆没用的变量。在 Go 中可以通过结合使用`多重返回`和`匿名变量`来避免这种丑陋的写法，让代码看起来更加优雅。
+
+```go
+func getName() (firstName, lastName, nickname string) {
+ return  "May", "Chan", "Chibi Maruko"
+}
+```
+
+若只想获得 nickName，则函数调用语句可以用如下方式编写：
+
+```go
+_, _, nickName := GetName()
+```
+
+## 2. 常量
+
+在Go语言中，常量是指编译期间就已知且不可改变的值。常量可以是数值类型（包括整型、浮点型和复数类型）、布尔类型、字符串类型等。
+
+### 2.1 常量定义
+
+通过关键字 `const` 就可以给指定的字面量指定名称
+
+```go
+const Pi float64 = 3.14159265358979323846
+const zero = 0.0            // 无类型浮点常量
+const (
+ size int64 = 1024 
+ eof = -1                   // 无类型整型常量
+) 
+const u, v float32 = 0, 3   // u = 0.0, v = 3.0，常量的多重赋值
+const a, b, c = 3, 4, "foo" // a = 3, b = 4, c = "foo",无类型整型和字符串常量
+```
+
+Go 的常量定义可以限定常量类型，但不是必需的。如果定义常量时没有指定类型，那么它与字面常量一样，是无类型常量。
+
+>[!important]注意：
+>
+>常量的赋值是一个编译期行为，所以右值不能出现任何需要在运行期才能得出结果的表达式，例如：
+>
+>```go
+>const Home = os.getEnv("HOME")
+>```
+>
+>这种方式定义常量将会导致编译错误 `os.GetEnv()`只有在运行期才能知道返回结果，在编译期并不能确定，所以无法作为常量定义的右值。
+
+### 2.2 预定义常量
+
+Go 语言预定义了这些常量：true、false 和 iota。其中 `iota` 比较特殊，可以被认为是一个可被编译器修改的常量，在每一个 const 关键字出现时被
+重置为 0，然后在下一个 const 出现之前，每出现一次 iota，其所代表的数字会自动增 1
+
+```go
+const (             // iota 被重置为 0
+    c0 = iota       // 0
+    c1 = iota       // 1
+    c2 = iota       // 2
+)
+
+const (
+    u         = iota * 42   // u == 0
+    v float64 = iota * 42   // v == 42.0
+    w         = iota * 42   // 84
+)
+
+const x = iota      // 0
+const y = iota      // 0
+```
+
+如果两个 const 的赋值语句的表达式是一样的，那么`可以省略后一个赋值表达式`。因此，上述第一个 const 语句可简写为：
+
+```go
+const (
+    c0 = iota       // 0
+    c1              // 1
+    c2              // 2
+)
+```
+
+### 2.3 枚举
+
+`枚举指一系列相关的常量`，比如下面关于一个星期中每天的定义。在 Go 语言中定义枚举值通过在 `const` 关键字后跟一对圆括号的方式定义一组常量。
+
+```go
+const (
+    Sunday = iota
+    Monday 
+    Tuesday 
+    Wednesday 
+    Thursday 
+    Friday 
+    Saturday 
+    numberOfDays
+)
+```
+
+>[!important]注意：
+>
+>同 Go 语言的其他符号（symbol）一样，以大写字母开头的常量在包外可见。并且 Go 语言并不支持众多其他语言明确支持的 `enum` 关键字。
+>
+
+## 3. 类型
 
 在 Go 语言中，变量可大致为：布尔型（bool）、字符串型（string）、整型（int）、浮点型（float）、复数型（complex）
 
@@ -42,7 +218,7 @@ func main() {
 }
 ```
 
-#### 1.1.1 预定义类型（predeclared types）
+### 3.1 预定义类型（predeclared types）
 
 整型默认占用 4 字节，此外还可通过额外指定位数来调整占用空间，例如：int8(占一个字节)、int16(占两个字节)、int32(占4个字节)、int64（占8个字节）
 
@@ -58,7 +234,7 @@ func main() {
 
 float 类型的预定义类型与整型类似，但是只有：`float32` 和 `float64`
 
-#### 1.1.2 不指明变量类型
+### 3.2 不指明变量类型
 
 变量类型的后置通常不是严格的，可以省略，`在编译时编译器会自动推导类型`，例如：
 
@@ -78,217 +254,7 @@ func main() {
 }
 ```
 
-### 1.2 批量格式
-
-> 觉得每行都用 var 声明变量比较烦琐？Go语言提供了批量声明的方式
-
-~~~go
-var (
-    a int
-    b string
-    c []float32
-)
-~~~
-
-~~~go
-package main
-
-import "fmt"
-
-
-var (
- a int
- b string
- c []float32
-)
-func main() {
-    //%d 整数占位符，%s 字符串占位符， %f 浮点数占位符(默认精度为6)
- fmt.Printf("%d,%s,%f",a,b,c)
-}
-~~~
-
-## 1.5 简短格式
-
-> 我们可以省略`var`关键字，这样写起来更加便捷
-
-~~~go
-//i是变量名 1 是值（或者表达式）
-i := 1
-~~~
-
-**上面讲过，如果不指明类型，直接赋值，Go会自动推导类型**
-
-使用简短格式有以下限制：
-
-1. 定义变量，同时显式初始化
-2. 不能提供数据类型
-3. 只能用在函数内部
-
-~~~go
-package main
-
-import "fmt"
-
-//不能
-//aa :=1
-func main() {
- aa :=1
- fmt.Println(aa)
-}
-~~~
-
-**简短变量声明被广泛用于大部分的局部变量的声明和初始化，var 形式的声明语句往往用于需要显式指定变量类型的地方**
-
-# 2. 初始化变量
-
-~~~go
-//创建了一个游戏角色 初始等级为1
-var level int = 1
-~~~
-
-~~~go
-//短变量声明
-level := 1
-~~~
-
-以下的代码会出错：
-
-~~~go
-package main
-
-func main() {
- 
- var level int = 1
-    // 再次声明并赋值 会报错 no new variables on left side of := （左边的变量已经被声明了，不能重复声明）
- level := 1
-}
-~~~
-
-**但是有特例**
-
-比如：`net.Dial`提供按指定协议和地址发起网络连接，这个函数有两个返回值，一个是`连接对象（conn）`，一个是`错误对象（err）`
-
-正常的写法：
-
-~~~go
-package main
-
-import (
- "fmt"
- "net"
-)
-func main() {
-
- var conn net.Conn
- var err error
- conn, err = net.Dial("tcp", "127.0.0.1:8080")
- fmt.Println(conn)
- fmt.Println(err)
-}
-~~~
-
-短变量的写法：
-
-~~~go
-package main
-
-import (
- "fmt"
- "net"
-)
-
-func main() {
-
- conn, err := net.Dial("tcp", "127.0.0.1:8080")
- conn1, err := net.Dial("tcp", "127.0.0.1:8080")
- fmt.Println(conn)
- fmt.Println(conn1)
- fmt.Println(err)
-}
-~~~
-
-**在多个短变量声明和赋值中，至少有一个新声明的变量出现在左值中，即便其他变量名可能是重复声明的，编译器也不会报错**
-
-# 3. 小demo
-
-> 变量交换，比如a=100，b=200，交换之后 a=200，b=100
-
-如果是你，你会怎么样进行实现呢？
-
-**第一种**
-
-~~~go
-package main
-
-import "fmt"
-
-func main() {
- a := 100
- b := 200
- var c int
- c = b
- b = a
- a = c
- fmt.Printf("a=%d,b=%d",a,b)
-}
-~~~
-
-**第二种**
-
-~~~go
-package main
-
-import "fmt"
-
-func main() {
- a := 100
- b := 200
-
- a = a^b
- b = b^a
- a = a^b
- fmt.Printf("a=%d,b=%d",a,b)
-}
-~~~
-
-**第三种**
-
-~~~go
-package main
-
-import "fmt"
-
-func main() {
- a := 100
- b := 200
- b,a = a,b
- fmt.Printf("a=%d,b=%d",a,b)
-}
-~~~
-
-> 应该有点体会到Go语言编程的快捷，方便以及强大了吧
-
 # 4. 匿名变量
-
-使用`多重赋值`时，如果`不需要在左值中接受变量`，可以使用匿名变量
-
-比如上面的例子:
-
-~~~go
-package main
-
-import (
- "fmt"
- "net"
-)
-func main() {
-
-    //conn, err := net.Dial("tcp", "127.0.0.1:8080")
-    //如果不想接收err的值，那么可以使用_表示，这就是匿名变量
-    conn, _ := net.Dial("tcp", "127.0.0.1:8080")
- fmt.Println(conn)
-}
-~~~
 
 > 匿名变量以“_”下划线表示
 >
