@@ -7,6 +7,7 @@ import { buildToolNav } from './buildTool';
 import { frameworkNav } from './framework';
 
 import { v8SideBar } from './browser/v8SideBar';
+import { goSideBar } from './backend/goSidebar';
 import { vueSideBar } from './framework/vueSideBar';
 import { loopSideBar } from './browser/loopSideBar';
 import { basicsJSSideBar } from './basics/jsSideBar';
@@ -46,6 +47,7 @@ export default defineConfig({
 			'/browser/loop/': loopSideBar,
 			'/browser/security/': securitySideBar,
 			'buildTools/Webpack': webpackSideBar,
+			'backend/Go': goSideBar,
 		},
 
 		socialLinks: [{ icon: 'github', link: 'https://github.com/ZhaoJiSen/docs' }],
