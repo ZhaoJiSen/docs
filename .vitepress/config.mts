@@ -8,6 +8,7 @@ import { frameworkNav } from './framework';
 
 import { v8SideBar } from './browser/v8SideBar';
 import { goSideBar } from './backend/goSidebar';
+import { pySidebar } from './backend/pySidebar';
 import { vueSideBar } from './framework/vueSideBar';
 import { loopSideBar } from './browser/loopSideBar';
 import { basicsJSSideBar } from './basics/jsSideBar';
@@ -39,6 +40,7 @@ export default defineConfig({
 		},
 
 		sidebar: {
+			'backend/Python': pySidebar,
 			'/basics/CSS': basicsCSSSideBar,
 			'/basics/JavaScript': basicsJSSideBar,
 			'/browser/browser': browserBrowserSideBar,

@@ -1,3 +1,4 @@
+import { log } from 'console';
 import fs from 'fs';
 import path from 'path';
 
@@ -31,6 +32,7 @@ export const walk = function (baseDir, subDir = '', collapsible, collapsed) {
       const index2 = Number(b.text.split('.')[0]);
       return index1 - index2;
     });
+
 
   return {
     text: subDir || '默认值',

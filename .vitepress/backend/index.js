@@ -8,7 +8,7 @@ export const backEnd = {
 		},
 		{
 			text: 'Python',
-			link: 'backend/Python',
+			link: 'backend/Python/基础知识/1.基础语法.md',
 		},
 		{
 			text: 'Go',
